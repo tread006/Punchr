@@ -13,6 +13,7 @@ public class Reward {
     protected LocalDate DateOfExpiration;
     protected String RewardCode;
     protected int PunchesRequired;
+    protected String description;
 
     //For use in Driver - Copy/paste when Driver file exists
     SimpleDateFormat formatDate = 
@@ -28,6 +29,8 @@ public class Reward {
      */
     public Reward(String rewardcode)
     {
+        this.description = "Welcome Reward -10%\n";
+
         this.setAvailable(true);
         this.setDateAvailable(LocalDate.now());
 
@@ -47,8 +50,9 @@ public class Reward {
      * These rewards will be activated by # of Punches OR date (birthday reward)
      * Reward Code will be set upon Redemption
      */
-    public Reward(int punchesrequired)
+    public Reward(int punchesrequired, String description)
     {
+        this.description = description;
         this.setAvailable(false);
         this.setRedeemed(false);
         this.setExpired(false);
