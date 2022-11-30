@@ -3,16 +3,16 @@ import java.time.LocalDate;
 
 public class Reward {
     //attributes
-    protected boolean Available;
-    protected LocalDate DateAvailable;
-    protected boolean Redeemed;
-    protected LocalDate DateRedeemedForUse;
-    protected boolean Used;
-    protected LocalDate DateUsed;
-    protected boolean Expired;
-    protected LocalDate DateOfExpiration;
-    protected String RewardCode;
-    protected int PunchesRequired;
+    protected boolean available;
+    protected LocalDate dateAvailable;
+    protected boolean redeemed;
+    protected LocalDate dateRedeemedForUse;
+    protected boolean used;
+    protected LocalDate dateUsed;
+    protected boolean expired;
+    protected LocalDate dateOfExpiration;
+    protected String rewardCode;
+    protected int punchesRequired;
     protected String description;
 
     //For use in Driver - Copy/paste when Driver file exists
@@ -63,65 +63,65 @@ public class Reward {
 
     //Getters and Setters
     public boolean isAvailable() {
-        return Available;
+        return available;
     }
     public void setAvailable(boolean available) {
-        Available = available;
+        available = available;
     }
     public LocalDate getDateAvailable() {
-        return DateAvailable;
+        return dateAvailable;
     }
     public void setDateAvailable(LocalDate dateAvailable) {
-        DateAvailable = dateAvailable;
+        dateAvailable = dateAvailable;
     }
     public boolean isRedeemed() {
-        return Redeemed;
+        return redeemed;
     }
     public void setRedeemed(boolean redeemed) {
-        Redeemed = redeemed;
+        redeemed = redeemed;
     }
     public LocalDate getDateRedeemedForUse() {
-        return DateRedeemedForUse;
+        return dateRedeemedForUse;
     }
     public void setDateRedeemedForUse(LocalDate dateRedeemedForUse) {
-        DateRedeemedForUse = dateRedeemedForUse;
+        dateRedeemedForUse = dateRedeemedForUse;
     }
     public boolean isUsed() {
-        return Used;
+        return used;
     }
     public void setUsed(boolean used) {
-        Used = used;
+        used = used;
     }
     public LocalDate getDateUsed() {
-        return DateUsed;
+        return dateUsed;
     }
     public void setDateUsed(LocalDate dateUsed) {
-        DateUsed = dateUsed;
+        dateUsed = dateUsed;
     }
     public boolean isExpired() {
-        return Expired;
+        return expired;
     }
     public void setExpired(boolean expired) {
         if (getDateOfExpiration() != null)
-            Expired = expired;
+            expired = expired;
     }
     public LocalDate getDateOfExpiration() {
-        return DateOfExpiration;
+        return dateOfExpiration;
     }
     public void setDateOfExpiration(LocalDate dateOfExpiration) {
-        DateOfExpiration = dateOfExpiration;
+        dateOfExpiration = dateOfExpiration;
     }
     public String getRewardCode() {
-        return RewardCode;
+        return rewardCode;
     }
     public void setRewardCode(String rewardCode) {
-        RewardCode = rewardCode;
+        rewardCode = rewardCode;
     }
     public int getPunchesRequired() {
-        return PunchesRequired;
+        return punchesRequired;
     }
     public void setPunchesRequired(int punchesRequired) {
-        PunchesRequired = punchesRequired;
+        punchesRequired = punchesRequired;
     }
 
 }

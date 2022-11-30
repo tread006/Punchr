@@ -6,8 +6,6 @@ public abstract class User { //User class
 	 protected String password;
 	 protected String fname;
 	 protected String lname;
-	 protected boolean customer; //is the user a customer or staff?
-	 protected boolean confirmedStaff; //if true, the user provided the staff code
 	 
 	
 	
