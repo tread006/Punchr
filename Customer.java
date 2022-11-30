@@ -15,6 +15,138 @@ public class Customer extends User {
 	private boolean optinEmail;		//agree or disagree (true or false)
 	private ArrayList<Reward> rewards; //allows for resizing to more than 10 rewards later
 	
+	public void markRewardRedeemed(String rewardName, String rewardCode){
+		for (Reward i : rewards) {
+			if (i.getDescription() == rewardName)
+				;
+				}
+    }
+
+	public void markRewardExpired(String rewardName){
+		for (Reward i : rewards) {
+			if (i.getDescription() == rewardName)
+				;
+				}
+    }
+
+	public void markRewardUsed(String rewardName){
+		for (Reward i : rewards) {
+			if (i.getDescription() == rewardName)
+				;
+				}
+    }
+
+	public void markRewardAvailable(String rewardName){
+		for (Reward i : rewards) {
+			if (i.getDescription() == rewardName)
+				;
+				}
+    }
+
+	public String getPunchID() {
+		return punchID;
+	}
+
+
+	public void setPunchID(String punchID) {
+		this.punchID = punchID;
+	}
+
+
+	public int getNumberofpunches() {
+		return numberofpunches;
+	}
+
+
+	public void setNumberofpunches(int numberofpunches) {
+		this.numberofpunches = numberofpunches;
+	}
+
+	public void addOnePunch() {
+		this.numberofpunches = numberofpunches + 1;
+	}
+
+
+	public Date getBirthday() {
+		return birthday;
+	}
+
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
+
+	public String getStreet1() {
+		return street1;
+	}
+
+
+	public void setStreet1(String street1) {
+		this.street1 = street1;
+	}
+
+
+	public String getStreet2() {
+		return street2;
+	}
+
+
+	public void setStreet2(String street2) {
+		this.street2 = street2;
+	}
+
+
+	public String getCity() {
+		return city;
+	}
+
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+
+	public String getState() {
+		return state;
+	}
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+
+	public String getZip5() {
+		return zip5;
+	}
+
+
+	public void setZip5(String zip5) {
+		this.zip5 = zip5;
+	}
+
+
+	public boolean isOptinEmail() {
+		return optinEmail;
+	}
+
+
+	public void setOptinEmail(boolean optinEmail) {
+		this.optinEmail = optinEmail;
+	}
+
+
+	public ArrayList<Reward> getRewards() {
+		return rewards;
+	}
+
+
+	public void setRewards(ArrayList<Reward> rewards) {
+		this.rewards = rewards;
+	}
+
+
 	SimpleDateFormat formatDate = 
       new SimpleDateFormat ("dd/MM/yyyy");
 
