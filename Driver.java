@@ -1,4 +1,9 @@
+import java.security.SecureRandom;
+import java.util.HashSet;
 import java.util.Hashtable;
+import java.lang.StringBuilder;
+import javax.swing.plaf.TreeUI;
+import javax.swing.text.StyledEditorKit.ForegroundAction;
 
 public class Driver 
 {
@@ -8,11 +13,13 @@ public class Driver
     database Customers;
     database Employees;
     database Rewards;
-    Hashtable punchCodes;
-    Hashtable rewardCodes;
+    HashSet<String> rewardCodes;
+    HashSet<String> punchCodes;
+    static final String AB;
+    static SecureRandom rnd;
 
     //creates unique alphanumeric codes and stores in corresp. hashtable
-    CodeGenerator generator; 
+   
     
 
 
@@ -20,9 +27,29 @@ public class Driver
     public Driver()
     {
         //Connects to databases?
+        rewardCodes = new HashSet<String>();
+        punchCodes = new HashSet<String>();
+        AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        rnd = new SecureRandom();
     }
 
     //Methods of Driver
+
+    public String codeGenerator(String typeOfCode){
+        StringBuilder sb;
+        if (typeOfCode == "rewardCode") {
+            sb = new StringBuilder(8);
+            for(int i = 0; i < 8; i++)
+                sb.append(AB.charAt(rnd.nextInt(AB.length())));
+            return sb.toString();}
+        else if (typeOfCode == "punchCode") {
+            sb = new StringBuilder(6);
+            for(int i = 0; i < 6; i++)
+                sb.append(AB.charAt(rnd.nextInt(AB.length())));
+            return sb.toString(); }
+        else 
+            return "error";
+    }
 
     /* displayLoginPage() method: Used by both Employee and Customers
      * Preconditions: User must request webpage on a device with working internet
@@ -112,7 +139,7 @@ public class Driver
      *                  returns true to createAcct()  */
 
      public boolean addUser(Database db) {
-
+        String punchCode = codeGenerator("punchCode");
      }
 
 
@@ -172,13 +199,13 @@ public class Driver
         int currentPunches = numberofpunches from Customer matching punchCode;
         for (rewards from Rewards matching punchCode)
             if (currentPunches == punchesRequired && redeemed == false && description != "Birthday Reward")
-                makeRewardRedeemable(reward name); //marks bools, creates button in UI
+                markRewardAvailable(rewardName); //marks bools, creates button in UI
             else if ((todays date to MMDD matches customer bday to MMDD) && redeemed == false)
-                markRewardRedeemable(Birthday Reward); //marks bools, creates button in UI
+                markRewardAvailable(BirthdayReward); //marks bools, creates button in UI
             else if ((todays date to MMDD >= expiration date) && used == false && rewardCode != NULL)
-                markRewardExpired(reward name); //set rewardCode to NULL, update bools, update UI
+                markRewardExpired(rewardName); //set rewardCode to NULL, update bools, update UI
             else if (used==true && rewardCode != NULL)
-                markRewardUsed(reward name); //set rewardCode to NULL, update bools, update UI
+                markRewardUsed(rewardName); //set rewardCode to NULL, update bools, update UI
 
     }
 
@@ -195,7 +222,10 @@ public class Driver
      */
     public void redeemReward(String punchCode, String rewardName) {
         //update bools and expiration date (if applicable)
+        find customer based on punchCode; //pass customer the reward name
         //call codeGenerator to create and add code to hashtable and rewards db
+        String rewardCode = codeGenerator("rewardCode");
+        customer.markRewardRedeemed(rewardName, rewardCode);
         //update UI to show code and expiration date - How do we do this in real time??
     }
 
@@ -218,7 +248,26 @@ public class Driver
      *                  3. if not accepted, what was wrong with code (invalid/expired/etc.)
     */
     public void inputCode() {
-        //
+        //Employee has hit ENTER or submit button
+        String input = read input from textbox;
+        //remove extra spaces with Regex
+        if (input.length() == 6) //punch code
+            search Customers for input
+                if found
+                    addOnePunch();
+                    updateRewards(input);
+                else
+                    return error message "PunchCode is not in system. Cannot update punch count."
+        else if (input.length() == 8) //reward code
+            search Rewards for input
+                if (found && redeemed == true && (expiration date != today or prior to today))
+                    markRewardUsed(rewardName);
+                    print message "Reward has been accepted. Please apply to bill: ", reward.getDescription();
+                else if (found && (expiration date == today or prior to today))
+                    markRewardExpired(rewardName);
+                else
+                    return error message "Reward is not in system. Cannot apply to bill."
+        
     }
 
 
