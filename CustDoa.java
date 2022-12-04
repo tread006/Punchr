@@ -1,6 +1,6 @@
 package com.javatpoint;  
 import org.springframework.jdbc.core.JdbcTemplate;  
-  
+
 public class EmployeeDao {  
 private JdbcTemplate jdbcTemplate;  
   
@@ -10,12 +10,12 @@ public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
   
 public int saveEmployee(Employee e){  
     String query="insert into employee values(  
-    '"+e.getId()+"','"+e.getFname()+"','"+e.getLname()+"','"+e.getPassword()+"')";  
+    '"+e.getId()+"','"+e.getPunches()+"','"+e.getDOB()+"','"+e.getEmail()+e.getRewards()"')";  
     return jdbcTemplate.update(query);  
 }  
 public int updateEmployee(Employee e){  
     String query="update employee set   
-    name='"+e.getName()+"',salary='"+e.getSalary()+"' where id='"+e.getId()+"' ";  
+    '"+e.getId()+"','"+e.getPunches()+"','"+e.getDOB()+"','"+e.getEmail()+e.getRewards()"')";
     return jdbcTemplate.update(query);  
 }  
 public int deleteEmployee(Employee e){  
