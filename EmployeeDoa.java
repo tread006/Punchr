@@ -10,7 +10,7 @@ public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
   
 public int saveEmployee(Employee e){  
     String query="insert into employee values(  
-    '"+e.getId()+"','"+e.getFname()+"','"+e.getLname()+"','"+e.getPassword()+"')";  
+    '"+e.getID()+"','"+e.getFname()+"','"+e.getLname()+"','"+e.getEmail()+"','"+e.getPassword()+"')";  
     return jdbcTemplate.update(query);  
 }  
 public int updateEmployee(Employee e){  
