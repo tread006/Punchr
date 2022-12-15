@@ -68,7 +68,6 @@ public class RegisterForm extends javax.swing.JFrame {
         jTextField_StaffCode = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(248, 148, 6));
 
@@ -583,7 +582,13 @@ public class RegisterForm extends javax.swing.JFrame {
     
     
     private void jButton_CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CANCELActionPerformed
-       System.exit(0);
+            
+        LoginForm lf = new LoginForm();
+        lf.setVisible(true);
+        lf.pack();
+        lf.setLocationRelativeTo(null);
+        lf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_jButton_CANCELActionPerformed
 
     private void jCheckBoxStaffItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBoxStaffItemStateChanged

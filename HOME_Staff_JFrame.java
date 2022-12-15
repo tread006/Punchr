@@ -2,16 +2,12 @@ package punchr;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -30,6 +26,7 @@ public class HOME_Staff_JFrame extends javax.swing.JFrame {
      */
     public HOME_Staff_JFrame() {
         initComponents();
+        this.getRootPane().setDefaultButton(jButton_Submit);
     }
 
     /**
